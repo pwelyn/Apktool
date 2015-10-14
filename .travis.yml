@@ -14,7 +14,7 @@ before_install:
   - sudo apt-get install -qq libstdc++6:i386 lib32z1 expect
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - git submodule update --init --recursive
-script: ./scripts/travis-ci/run-tests.sh
+script: ./gradlew
 branches:
   only:
     - master
