@@ -14,16 +14,9 @@ before_install:
   - sudo apt-get install -qq libstdc++6:i386 lib32z1 expect
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - git submodule update --init --recursive
+install: ./gradlew --version
 script: ./gradlew
 branches:
   only:
     - master
     - stable
-notifications:
-  irc:
-    channels:
-      - "chat.freenode.net#apktool"
-    on_success: change
-    on_failure: always
-    template:
-      - "%{repository_name} (%{commit}) : %{duration} - %{message}"
